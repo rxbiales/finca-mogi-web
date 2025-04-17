@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finca Mogi</title>
+    <link rel="stylesheet" href="../assets/styles/index.css">
+    <style>
+/* Definir a animação de deslizamento */
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100vh - 100px);
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Estilo para cada div na animação */
+.slide-in-div {
+    width: 300px; /* Ajusta a largura de cada div */
+    height: 180px; /* Diminui a altura */
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem; /* Ajuste no tamanho da fonte */
+    margin: 10px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideInRight 1s forwards;
+}
+
+/* Adicionar delays para cada div */
+.slide-in-div:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.slide-in-div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.slide-in-div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.slide-in-div:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.top-bar {
+    background: rgba(67, 40, 24, 0.9);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-bar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.top-bar a.active {
+    text-decoration: underline;
+}
+
+.card {
+    width: 300px; /* Aumenta a largura */
+    height: 180px; /* Diminui a altura */
+    background: #4e2c1e;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Ajusta o conteúdo no centro */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slideInRight 1s forwards;
+    opacity: 0;
+    transform: translateX(100%);
+    margin: 10px;
+}
+
+/* Adicionando animação para os cards */
+.card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* Estilo para as imagens dentro dos cards */
+.card-image {
+    width: 80%; /* Ajusta a largura da imagem */
+    height: 100px; /* Diminui a altura da imagem */
+    background: #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* Ajusta as imagens dentro dos cards */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Ajuste no título para caber melhor */
+.card-title {
+    margin-top: 5px;
+    font-size: 1.2rem; /* Reduz o tamanho da fonte */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Aumenta a largura e diminui a altura de cada div na animação */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bottom-bar {
+    background-color: #4e2c1e;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+
+.bottom-bar p {
+    margin: 0;
+}
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <a href="link1.html">Link 1</a>
+        <a href="link2.html">Link 2</a>
+        <a href="turismo.html" class="active">Turismo</a>
+        <a href="link4.html">Link 4</a>
+        <a href="link5.html">Link 5</a>
+    </div>
+
+
+    <div class="container">
+        <a href="naturaleza.html" class="card-link">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../assets/images/naturaleza.jpg" alt="">
+                </div>
+                <div class="card-title">Naturaleza</div>
+            </div>
+        </a>
+        
+        <a href="gastronomia.html" class="card-link">
+            <div class="card">
+                <div class="card-image"> <img src="../assets/images/gastronomia.png" alt="">
+                </div>
+                <div class="card-title">Gastronomía</div>
+            </div>
+        </a>
+
+        <a href="compras.html" class="card-link">
+            <div class="card">
+                <div class="card-image"><img src="../assets/images/compras.png" alt=""></div>
+                <div class="card-title">Compras</div>
+            </div>
+        </a>
+        <a href="cultura.html" class="card-link">
+            <div class="card">
+                <div class="card-image"><img src="../assets/images/cultura.jpg" alt=""></div>
+                <div class="card-title">Cultura</div>
+            </div>
+        </a>
+    </div>
+
+
+    <!-- Faixa inferior -->
+    <div class="bottom-bar">
+        <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+
+        window.onload = function () {
+            // Carregar a imagem de fundo
+            var img = new Image();
+            img.src = "../assets/images/menuBackground.png"; // Caminho da imagem
+
+            // Quando a imagem estiver carregada, aplique como fundo e mostre o conteúdo
+            img.onload = function () {
+                // Aplique a imagem de fundo ao corpo
+                document.body.style.backgroundImage = 'url(' + img.src + ')';
+
+                // Adicionar a classe para mostrar a página suavemente
+                document.body.classList.add("fadeInBackground");
+            };
+
+            // Caso a imagem já esteja em cache
+            if (img.complete) {
+                img.onload(); // Se a imagem já estiver carregada (em cache), chame a função diretamente
+            }
+        };
+        // Seleciona todos os links da página
+        const links = document.querySelectorAll('a');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Se o href for "#" não aplica transição
+                if (link.getAttribute('href') === "#") return;
+
+                e.preventDefault(); // Previne a navegação imediata
+
+                // Adiciona a classe que dispara a animação de saída
+                document.body.classList.add('page-slide-out');
+
+                // Após o fim da animação, redireciona para a nova página
+                setTimeout(() => {
+                    window.location.href = link.getAttribute('href');
+                }, 1000); // Tempo em milissegundos deve coincidir com a duração da animação
+            });
+        });
+    </script>
+</body>
+
+</html>

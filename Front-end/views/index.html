@@ -2,44 +2,64 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finca Mogi</title>
-    <link rel="stylesheet" href="../assets/styles/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finca Mogi</title>
+  <link rel="stylesheet" href="../assets/styles/index.css">
 </head>
 
 <body>
-    <!-- Faixa superior -->
-    <div class="top-bar">
-        <p>Finca "Vozes da Mata" - La verdadera experiencia rural</p>
+  <!-- Faixa superior -->
+  <div class="top-bar">
+    <p>Finca "Vozes da Mata" - La verdadera experiencia rural</p>
+  </div>
+
+  <div class="container">
+    <div class="finca-info">
+      <h1>Bienvenido á Mogi</h1>
     </div>
 
-    <div class="container">
-        <div class="finca-info">
-            <h1>Bienvenido á Mogi</h1>
-        </div>
-
-        <div class="menu">
-            <button class="menu-item"><a href="#">Galeria</a></button>
-            <button class="menu-item"><a href="#">Eventos</a></button>
-            <button class="menu-item"><a href="#">Turismo en la ciudad</a></button>
-            <button class="menu-item"><a href="#">Sobre nosotros</a></button>
-            <button class="menu-item"><a href="#">Contacto</a></button>
-            <div>
-                <a class="menu-link" href="https://www.airbnb.es/">
-                    <img src="../assets/images/imagenAirbnb.png" alt="" width="100px">
-                </a>
-                <a class="menu-link" href="https://www.instagram.com/">
-                    <img src="../assets/images/imagenInsta.png" alt="" width="55px">
-                </a>
-            </div>
-        </div>
+    <div class="menu">
+      <button class="menu-item"><a href="#">Galería</a></button>
+      <button class="menu-item"><a href="#">Eventos</a></button>
+      <button class="menu-item"><a href="turismo.html">Turismo en la ciudad</a></button>
+      <button class="menu-item"><a href="#">Sobre nosotros</a></button>
+      <button class="menu-item"><a href="#">Contacto</a></button>
+      <div>
+        <a class="menu-link" href="https://www.airbnb.com.br/rooms/1363240811744584090?source_impression_id=p3_1744747744_P3lxjuLjmqJh6dNy">
+          <img src="../assets/images/logoAirbnb.png" alt="" width="90px">
+        </a>
+        <a class="menu-link" href="https://www.instagram.com/chacara_vozesdamata/">
+          <img src="../assets/images/logoIG.png" alt="" width="80px">
+        </a>
+      </div>
     </div>
+  </div>
 
-    <!-- Faixa inferior -->
-    <div class="bottom-bar">
-        <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
-    </div>
+  <div class="bottom-bar">
+    <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+
+        if (link.getAttribute('href') === "#") return;
+
+        e.preventDefault(); 
+
+        document.body.classList.add('page-slide-out');
+
+        setTimeout(() => {
+          window.location.href = link.getAttribute('href');
+        }, 1000);
+      });
+    });
+  </script>
 </body>
+
+</html>
 
 </html>

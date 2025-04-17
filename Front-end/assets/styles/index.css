@@ -1,122 +1,139 @@
-/* Global */
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: url('../images/menuBackground.png') center/cover no-repeat;
-    color: white;
-}
+    /* Global */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: url('../images/menuBackground.png') center/cover no-repeat;
+      color: white;
+    }
 
-/* Barras fixa */
-.top-bar,
-.bottom-bar {
-    width: 100%;
-    height: 50px;
-    background-color: rgba(67, 40, 24, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: fixed;
-    left: 0;
-    z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
+    /* Barras fixa */
+    .top-bar,
+    .bottom-bar {
+      width: 100%;
+      height: 50px;
+      background-color: rgba(67, 40, 24, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      position: fixed;
+      left: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .top-bar { top: 0; }
+    .bottom-bar { bottom: 0; }
 
-.top-bar {
-    top: 0;
-}
-
-.bottom-bar {
-    bottom: 0;
-}
-
-/* Container principal */
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: calc(100vh - 100px);
-    padding: 0 20px;
-}
-
-/* Finca Info */
-.finca-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    font-size: 2rem;
-}
-
-.finca-info h1 {
-    font-size: 3rem;
-    margin: 0;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-}
-
-/* Menu e Itens */
-.menu {
-    background-color: rgba(67, 40, 24, 0.85);
-    padding: 20px;
-    width: 350px;
-    height: 600px;
-    border-radius: 5px;
-    border: 2px solid lightgray;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-}
-
-.menu-item {
-    border: 2px solid lightgray;
-    background: none;
-    margin: 27px;
-    padding: 12px;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    width: 300px;
-}
-
-.menu-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.menu-item a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2rem;
-    display: inline-block;
-}
-
-.menu-link {
-  cursor: pointer;
-  margin: 20px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
+    /* Container principal */
     .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: calc(100vh - 100px);
+      padding: 0 20px;
+    }
+
+    /* Finca Info */
+    .finca-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 2rem;
+    }
+    .finca-info h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Menu e Itens */
+    .menu {
+      background-color: rgba(67, 40, 24, 0.85);
+      padding: 20px;
+      width: 350px;
+      height: 600px;
+      border-radius: 5px;
+      border: 2px solid lightgray;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+    }
+    .menu-item {
+      border: 2px solid lightgray;
+      background: none;
+      margin: 27px;
+      padding: 12px;
+      text-align: center;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      width: 300px;
+    }
+    .menu-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .menu-item a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2rem;
+      display: inline-block;
+    }
+    .menu-link {
+      cursor: pointer;
+      margin: 20px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
-
-    .menu {
+      }
+      .menu {
         width: 90%;
         height: auto;
         margin-top: 20px;
-    }
-
-    .finca-info {
+      }
+      .finca-info {
         width: 80%;
         margin-bottom: 20px;
+      }
     }
-}
+
+    /* Animações de Transição */
+    @keyframes slideOut {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
+    @keyframes slideIn {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    /* Classe para animação de saída */
+    .page-slide-out {
+      animation: slideOut 1s forwards;
+    }
+    /* Caso deseje aplicar animação de entrada na nova página, adicione a classe 'page-slide-in' nessa página */
+    .page-slide-in {
+      animation: slideIn 1s forwards;
+    }
