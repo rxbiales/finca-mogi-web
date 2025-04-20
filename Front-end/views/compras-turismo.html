@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centros Comerciales - Finca Mogi</title>
+    <link rel="stylesheet" href="../assets/styles/gastronomia-turismo.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <a href="index.html">Inicio</a>
+        <a href="*.html">Eventos</a>
+        <a href="turismo.html" class="active">Turismo</a>
+        <a href="*.html">Sobre nosotros</a>
+        <a href="Contacto.html">Contacto</a>
+    </div>
+
+    <div class="intro-section">
+        <h1>Shopping en Mogi</h1>
+        <div class="scroll-indicator">
+            <span>&#x25BC;</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+
+        <div class="park">
+            <img src="../assets/images/mogiShopping.jpg" alt="Mogi Shopping">
+            <div class="park-content">
+                <h2>Mogi Shopping</h2>
+                <p><strong>Destacados:</strong> El centro comercial más grande y tradicional de la ciudad, con más de
+                    200 tiendas, cine Cinemark, una amplia plaza de comidas y eventos culturales. Ideal para quienes
+                    buscan variedad y confort.</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.4648890894946!2d-46.18231382378973!3d-23.515776159920826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd836a9f9cde1%3A0x227fb73b77deb77a!2sMogi%20Shopping!5e0!3m2!1sen!2ses!4v1745172432337!5m2!1sen!2ses"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="park">
+            <img src="../assets/images/patteoUrupema.jpg" alt="Patteo Urupema Shopping">
+            <div class="park-content">
+                <h2>Patteo Urupema Shopping</h2>
+                <p><strong>Destacados:</strong> Ubicado en el centro de la ciudad, ofrece opciones prácticas para el día
+                    a día, con tiendas variadas, servicios y comida en un ambiente moderno y accesible.</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.198380167436!2d-46.20193422378929!3d-23.525366260272495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd9789c62cde5%3A0x994ccca9051caab2!2sUrupema%20Mall!5e0!3m2!1sen!2ses!4v1745172473164!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const bg = new Image();
+            bg.src = "../assets/images/shopping.png";
+            bg.onload = () => {
+                document.body.style.backgroundImage = `url(${bg.src})`;
+            };
+            if (bg.complete) bg.onload();
+        };
+    </script>
+</body>
+
+</html>

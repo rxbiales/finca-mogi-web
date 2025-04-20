@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastronomia - Finca Mogi</title>
+    <link rel="stylesheet" href="../assets/styles/gastronomia-turismo.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <a href="index.html">Inicio</a>
+        <a href="*.html">Eventos</a>
+        <a href="turismo.html" class="active">Turismo</a>
+        <a href="*.html">Sobre nosotros</a>
+        <a href="Contacto.html">Contacto</a>
+    </div>
+
+    <div class="intro-section">
+        <h1>Experimente la gastronomia de Mogi</h1>
+        <div class="scroll-indicator">
+            <span>&#x25BC;</span>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <!-- Introdução -->
+        <div class="park">
+            <img src="../assets/images/comidaBackground.jpg" alt="Gastronomía en Mogi">
+            <div class="park-content">
+                <h2>Gastronomía en Mogi das Cruzes</h2>
+                <p>Mogi das Cruzes ofrece una experiencia culinaria rica y diversa que refleja su herencia
+                    multicultural, especialmente la influencia japonesa, portuguesa e indígena. Los visitantes
+                    encontrarán desde platos típicos brasileños como la feijoada y el virado paulista hasta sushi de
+                    altísima calidad, preparado por descendientes de inmigrantes japoneses.</p>
+            </div>
+        </div>
+
+        <!-- Restaurante japonés -->
+        <div class="park">
+            <img src="../assets/images/restauranteJap.jpg" alt="Djapa Mogi">
+            <div class="park-content">
+                <h2>Cocina japonesa – Djapa Mogi</h2>
+                <p><strong>Especialidades:</strong> Sushi, sashimi, tempura y teppanyaki. Ambientes acogedores con menú
+                    rodízio.</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117077.1802570215!2d-46.25421718630939!3d-23.508685126148627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd84a2f055091%3A0xecf1eebaf85294cd!2sDjapa%20Mogi!5e0!3m2!1sen!2ses!4v1745172331457!5m2!1sen!2ses"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><strong>Otros lugares recomendados:</strong>
+                <ul>
+                    <li>Restaurante Mitsue</li>
+                    <li>Restaurante Kinoshita</li>
+                    <li>Temakeria e Sushi Bar Mogi</li>
+                </ul>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="park">
+            <img src="../assets/images/restauranteBra.jpg" alt="Restaurante Pé de Jaca">
+            <div class="park-content">
+                <h2>Cocina brasileña – Restaurante Pé de Jaca</h2>
+                <p><strong>Especialidades:</strong> Frango com quiabo, moqueca vegetariana, feijoada. Ambiente caseiro e
+                    acolhedor com pratos típicos.</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.353885747669!2d-46.16852382378752!3d-23.59163806270682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cddeddd4363d83%3A0x321448ece8f03e4d!2sRestaurante%20P%C3%A9%20de%20Jaca!5e0!3m2!1sen!2ses!4v1745172411082!5m2!1sen!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><strong>Otros lugares recomendados:</strong>
+                <ul>
+                    <li>Braza5</li>
+                    <li>O Berro</li>
+                    <li>Restaurante Mundial</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+
+        <!-- Opciones adicionales -->
+        <div class="park">
+            <div class="park-content">
+                <h2>Otras opciones gastronómicas</h2>
+                <p>Para quienes desean explorar más sabores, Mogi das Cruzes también ofrece:</p>
+                <ul>
+                    <li><strong>Pizzerias:</strong> Pizzaria La Capanna, Pizzaria Copacabana.</li>
+                    <li><strong>Cafeterías:</strong> Café Havanna, Café Morro Grande.</li>
+                    <li><strong>Hamburgueserías:</strong> Toca Burger, The Best Hamburgueria.</li>
+                    <li><strong>Comida italiana:</strong> Cantina Italiana D'Angelo, Trattoria Di Antonio.</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-bar">
+        <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const bg = new Image();
+            bg.src = "../assets/images/gastronomiaBackground.png";
+            bg.onload = () => {
+                document.body.style.backgroundImage = `url(${bg.src})`;
+            };
+            if (bg.complete) bg.onload();
+        };
+    </script>
+</body>
+
+</html>
