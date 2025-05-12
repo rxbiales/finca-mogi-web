@@ -7,7 +7,7 @@ body {
     transition: background 1s ease-in-out;
     background-image: url(../images/menuBackground.png);
     font-size: 1.2rem;
-
+    font-family: sans-serif;
 }
 
 .top-bar {
@@ -41,13 +41,33 @@ body {
 }
 
 .intro-section h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 0;
 }
 
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    font-size: 3rem;
+    color: white;
+    opacity: 0.8;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(10px); }
+    60% { transform: translateY(5px); }
+}
+
 .content-section {
-    background-color: #f0ebe3;
-    padding: 50px 20px;
+    background-color: #fefaf6;
+    padding: 80px 20px;
+    font-size: 1.15rem;
+    line-height: 1.8;
 }
 
 .container {
@@ -59,29 +79,34 @@ body {
 }
 
 .park {
-    max-width: 800px;
+    max-width: 1000px;
     width: 100%;
-    margin: 0 auto 60px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 80px;
+    background: #fffdfc;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    color: #333;
+    color: #3d3d3d;
 }
 
 .park img {
     width: 100%;
-    height: 300px;
+    height: 400px;
     object-fit: cover;
 }
 
 .park-content {
-    padding: 20px;
+    padding: 40px 30px;
 }
 
 .park-content h2 {
     margin-top: 0;
-    color: #333;
+    color: #2e1f12;
+    font-size: 2rem;
+}
+
+.park-content p {
+    margin-top: 20px;
 }
 
 iframe {
@@ -100,27 +125,11 @@ iframe {
     color: #fff;
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;       /* más abajo */
-     animation: bounce 2s infinite;
-}
-
-
-.scroll-indicator span {
-    font-size: 3rem;
-    color: white;
-    opacity: 0.8;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+@media (max-width: 768px) {
+    .park-content {
+        padding: 25px 20px;
     }
-    40% {
-        transform: translateY(10px);
-    }
-    60% {
-        transform: translateY(5px);
+    .intro-section h1 {
+        font-size: 3rem;
     }
 }
