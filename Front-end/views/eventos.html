@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventos - Finca Vozes da Mata</title>
+  <link rel="stylesheet" href="../assets/styles/eventos.css" />
+</head>
+<body>
+  <!-- Menú superior -->
+  <div class="top-bar">
+    <a href="index.html">Início</a>
+    <a href="eventos.html" class="active">Eventos</a>
+    <a href="turismo.html">Turismo</a>
+    <a href="sobre-nosotros.html">Sobre nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenedor principal con animación de entrada -->
+  <div class="container page-slide-in">
+    <div class="events-header">
+      <h1>Eventos en Finca Vozes da Mata</h1>
+      <p>Descubre nuestras experiencias únicas en medio de la naturaleza</p>
+    </div>
+
+    <!-- Filtros de eventos -->
+    <div class="event-filters">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar eventos..." />
+        <button type="button" class="search-button">Buscar</button>
+      </div>
+      <div class="category-filters">
+        <button type="button" class="filter-button active" data-category="todos">Todos</button>
+        <button type="button" class="filter-button" data-category="talleres">Talleres</button>
+        <button type="button" class="filter-button" data-category="musica">Música</button>
+        <button type="button" class="filter-button" data-category="gastronomia">Gastronomía</button>
+        <button type="button" class="filter-button" data-category="naturaleza">Naturaleza</button>
+      </div>
+    </div>
+
+    <!-- Evento destacado -->
+    <div class="featured-event">
+      <div class="featured-image">
+        <img src="https://images.pexels.com/photos/2747449/pexels-photo-2747449.jpeg" alt="Festival de Música Orgánica" />
+        <div class="featured-overlay"></div>
+      </div>
+      <div class="featured-content">
+        <span class="featured-badge">Destacado</span>
+        <h2>Festival de Música Orgánica</h2>
+        <div class="event-meta">
+          <div class="meta-item"><i class="icon-calendar"></i> 15 de Julio, 2025</div>
+          <div class="meta-item"><i class="icon-clock"></i> 16:00 - 22:00</div>
+          <div class="meta-item"><i class="icon-location"></i> Anfiteatro Natural</div>
+          <div class="meta-item"><i class="icon-users"></i> Capacidad: 200 personas</div>
+        </div>
+        <p class="event-description">
+          Sumérgete en nuestro festival anual donde la música se fusiona con la naturaleza. Disfruta de bandas 
+          locales e internacionales mientras el sol se pone entre los árboles del bosque. Gastronomía local 
+          y bebidas artesanales disponibles.
+        </p>
+        <button type="button" class="reserve-button">Reservar plaza</button>
+      </div>
+    </div>
+
+    <!-- Lista de eventos -->
+    <div class="events-grid">
+      <!-- Evento 1 -->
+      <div class="event-card" data-category="talleres">
+        <div class="event-image">
+          <img src="https://images.pexels.com/photos/4946665/pexels-photo-4946665.jpeg" alt="Taller de Cerámica Natural" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="event-content">
+          <h3>Taller de Cerámica Natural</h3>
+          <div class="event-meta">
+            <div class="meta-item"><i class="icon-calendar"></i> 22 de Junio, 2025</div>
+            <div class="meta-item"><i class="icon-clock"></i> 10:00 - 14:00</div>
+            <div class="meta-item"><i class="icon-location"></i> Sala de Artesanía</div>
+            <div class="meta-item"><i class="icon-users"></i> Capacidad: 15 personas</div>
+          </div>
+          <div class="event-description collapsed">
+            <p>Aprende a crear piezas únicas de cerámica utilizando arcillas y pigmentos naturales 
+            recolectados en nuestra finca. Cada participante creará su propia pieza para llevar a casa. 
+            Todos los materiales están incluidos y no se requiere experiencia previa.</p>
+          </div>
+          <button type="button" class="toggle-description">Ver más</button>
+          <button type="button" class="reserve-button">Reservar plaza</button>
+        </div>
+      </div>
+
+      <!-- Evento 2 -->
+      <div class="event-card" data-category="gastronomia">
+        <div class="event-image">
+          <img src="https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg" alt="Degustación de Café de Especialidad" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="event-content">
+          <h3>Degustación de Café de Especialidad</h3>
+          <div class="event-meta">
+            <div class="meta-item"><i class="icon-calendar"></i> 5 de Julio, 2025</div>
+            <div class="meta-item"><i class="icon-clock"></i> 9:00 - 11:00</div>
+            <div class="meta-item"><i class="icon-location"></i> Cafetería de la Finca</div>
+            <div class="meta-item"><i class="icon-users"></i> Capacidad: 12 personas</div>
+          </div>
+          <div class="event-description collapsed">
+            <p>Explora el mundo del café de especialidad cultivado en nuestra propia finca. 
+            Aprenderás sobre el proceso de cultivo orgánico, métodos de procesamiento y técnicas 
+            de preparación. Incluye degustación de 5 variedades diferentes y un paquete de café para llevar.</p>
+          </div>
+          <button type="button" class="toggle-description">Ver más</button>
+          <button type="button" class="reserve-button">Reservar plaza</button>
+        </div>
+      </div>
+
+      <!-- Evento 3 -->
+      <div class="event-card" data-category="naturaleza">
+        <div class="event-image">
+          <img src="https://images.pexels.com/photos/957024/forest-trees-perspective-bright-957024.jpeg" alt="Caminata al Amanecer" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="event-content">
+          <h3>Caminata al Amanecer</h3>
+          <div class="event-meta">
+            <div class="meta-item"><i class="icon-calendar"></i> 12 de Julio, 2025</div>
+            <div class="meta-item"><i class="icon-clock"></i> 5:30 - 8:30</div>
+            <div class="meta-item"><i class="icon-location"></i> Sendero del Bosque</div>
+            <div class="meta-item"><i class="icon-users"></i> Capacidad: 10 personas</div>
+          </div>
+          <div class="event-description collapsed">
+            <p>Una experiencia única para conectar con la naturaleza al amanecer. Recorreremos 
+            los senderos mientras el bosque despierta, observando aves y la flora local. 
+            La caminata termina con un desayuno orgánico preparado con ingredientes de nuestra huerta.</p>
+          </div>
+          <button type="button" class="toggle-description">Ver más</button>
+          <button type="button" class="reserve-button">Reservar plaza</button>
+        </div>
+      </div>
+
+      <!-- Evento 4 -->
+      <div class="event-card" data-category="musica">
+        <div class="event-image">
+          <img src="https://images.pexels.com/photos/7862601/pexels-photo-7862601.jpeg" alt="Concierto Acústico Bajo las Estrellas" />
+          <div class="image-overlay"></div>
+        </div>
+        <div class="event-content">
+          <h3>Concierto Acústico Bajo las Estrellas</h3>
+          <div class="event-meta">
+            <div class="meta-item"><i class="icon-calendar"></i> 19 de Julio, 2025</div>
+            <div class="meta-item"><i class="icon-clock"></i> 19:00 - 21:00</div>
+            <div class="meta-item"><i class="icon-location"></i> Jardín Central</div>
+            <div class="meta-item"><i class="icon-users"></i> Capacidad: 30 personas</div>
+          </div>
+          <div class="event-description collapsed">
+            <p>Una noche mágica de música acústica en nuestro jardín, iluminado solo por 
+            antorchas y luces de hadas. El músico local Maria Santos interpretará canciones 
+            originales inspiradas en la naturaleza. Incluye una copa de vino orgánico.</p>
+          </div>
+          <button type="button" class="toggle-description">Ver más</button>
+          <button type="button" class="reserve-button">Reservar plaza</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+      <a href="#" class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#" class="next">Siguiente &raquo;</a>
+    </div>
+  </div>
+
+  <!-- Barra inferior -->
+  <div class="bottom-bar">
+    <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+  </div>
+
+  <script>
+    // Manejo de la navegación con animaciones
+    const links = document.querySelectorAll('.top-bar a, .pagination a');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        if (link.getAttribute('href') === "#") return;
+        e.preventDefault();
+        document.querySelector('.container').classList.replace('page-slide-in','page-slide-out');
+        setTimeout(() => {
+          window.location.href = link.getAttribute('href');
+        }, 1000);
+      });
+    });
+
+    // Expandir/colapsar descripciones de eventos
+    const toggleButtons = document.querySelectorAll('.toggle-description');
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const description = button.previousElementSibling;
+        description.classList.toggle('collapsed');
+        button.textContent = description.classList.contains('collapsed') ? 'Ver más' : 'Ver menos';
+      });
+    });
+
+    // Filtrado de eventos por categoría
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const eventCards = document.querySelectorAll('.event-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Actualizar botones
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const category = button.getAttribute('data-category');
+        
+        // Filtrar eventos
+        eventCards.forEach(card => {
+          if (category === 'todos' || card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
