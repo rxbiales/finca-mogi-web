@@ -13,6 +13,7 @@ html {
     color: white;
     font-size: 1.2rem;
     transition: background 1s ease-in-out;
+    
   }
   
   /* Menú superior */
@@ -22,11 +23,12 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10;
+    
   }
   
   .top-bar a {
