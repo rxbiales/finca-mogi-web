@@ -1,64 +1,248 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finca Vozes da Mata</title>
+    <style>
+      :root {
+        --primary: #432818;
+        --primary-light: rgba(67, 40, 24, 0.8);
+        --secondary: #a9745c;
+        --secondary-light: rgba(169, 116, 92, 0.2);
+        --text: #fff;
+        --text-secondary: rgba(255, 255, 255, 0.9);
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.3);
+        --transition: 0.3s ease;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finca Mogi</title>
-  <link rel="stylesheet" href="../assets/styles/index.css">
-</head>
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
 
-<body>
-  <!-- Faixa superior -->
-  <div class="top-bar">
-    <p>Finca "Vozes da Mata" - La verdadera experiencia rural</p>
-  </div>
+      body {
+        background-image: url('../assets/images/menuBackground.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: var(--text);
+      }
 
-  <div class="container">
-    <div class="finca-info">
-      <h1>Bienvenido á Mogi</h1>
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 0;
+      }
+
+      .top-bar {
+        background: var(--primary);
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px;
+        min-height: calc(100vh - 120px);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .finca-info {
+        text-align: center;
+      }
+
+      .finca-info h1 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      .menu {
+        background-color: var(--primary-light);
+        padding: 24px;
+        width: 350px;
+        border-radius: var(--radius-md);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu-item {
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background: none;
+        margin: 16px 0;
+        padding: 12px;
+        text-align: center;
+        border-radius: var(--radius-sm);
+        transition: background-color var(--transition), transform var(--transition);
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .menu-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .menu-item a {
+        text-decoration: none;
+        color: var(--text);
+        font-size: 1.2rem;
+      }
+
+      .social-links {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .menu-link {
+        color: var(--text);
+        transition: transform var(--transition);
+        opacity: 0.9;
+      }
+
+      .menu-link:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+
+      .bottom-bar {
+        width: 100%;
+        height: 48px;
+        background-color: var(--primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+      }
+
+      .bottom-bar p {
+        color: var(--text);
+        font-size: 0.8rem;
+        margin: 0;
+      }
+
+      @keyframes slideOut {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+      }
+
+      .page-slide-out {
+        animation: slideOut 1s forwards;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          justify-content: center;
+          padding-top: 64px;
+          padding-bottom: 64px;
+        }
+
+        .menu {
+          width: 90%;
+          margin-top: 32px;
+        }
+
+        .finca-info h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar">
+      <p>Finca "Vozes da Mata" - La verdadera experiencia rural</p>
     </div>
 
-    <div class="menu">
-      <button class="menu-item"><a href="#">Eventos</a></button>
-      <button class="menu-item"><a href="turismo.html">Turismo en la ciudad</a></button>
-      <button class="menu-item"><a href="sobre-nosotros.html">Sobre nosotros</a></button>
-      <button class="menu-item"><a href="contacto.html">Contacto</a></button>
-      <div>
-        <a class="menu-link" href="https://www.airbnb.com.br/rooms/1363240811744584090?source_impression_id=p3_1744747744_P3lxjuLjmqJh6dNy" style="text-decoration: none;">
-          <img src="../assets/images/logoAirbnb.png" alt="" width="90px">
-        </a>
-        <a class="menu-link" href="https://www.instagram.com/chacara_vozesdamata/">
-          <img src="../assets/images/logoIG.png" alt="" width="80px">
-        </a>
+    <div class="container">
+      <div class="finca-info">
+        <h1>Bienvenido á Mogi</h1>
+      </div>
+
+      <div class="menu">
+        <button class="menu-item"><a href="eventos.html">Eventos</a></button>
+        <button class="menu-item"><a href="turismo.html">Turismo en la ciudad</a></button>
+        <button class="menu-item"><a href="sobre-nosotros.html">Sobre nosotros</a></button>
+        <button class="menu-item"><a href="contacto.html">Contacto</a></button>
+        <div class="social-links">
+          <a 
+            class="menu-link" 
+            href="https://www.airbnb.com.br/rooms/1363240811744584090?source_impression_id=p3_1744747744_P3lxjuLjmqJh6dNy" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <img src="https://cdn.worldvectorlogo.com/logos/airbnb.svg" alt="Airbnb" width="32" height="32" />
+          </a>
+          <a 
+            class="menu-link" 
+            href="https://www.instagram.com/chacara_vozesdamata/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" width="32" height="32" />
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="bottom-bar">
-    <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
-  </div>
+    <div class="bottom-bar">
+      <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+    </div>
 
-  <script>
-    const links = document.querySelectorAll('a');
-
-    links.forEach(link => {
-      link.addEventListener('click', (e) => {
-
-        if (link.getAttribute('href') === "#") return;
-
-        e.preventDefault(); 
-
-        document.body.classList.add('page-slide-out');
-
-        setTimeout(() => {
-          window.location.href = link.getAttribute('href');
-        }, 1000);
+    <script>
+      document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (link.getAttribute('target') === '_blank') return;
+          if (link.getAttribute('href') === '#') return;
+          
+          e.preventDefault();
+          document.body.classList.add('page-slide-out');
+          
+          setTimeout(() => {
+            window.location.href = link.getAttribute('href');
+          }, 1000);
+        });
       });
-    });
-  </script>
-</body>
-
-</html>
-
+    </script>
+  </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Turismo - Finca Vozes da Mata</title>
-  <link rel="stylesheet" href="../assets/styles/turismo.css" />
+  <link rel="stylesheet" href="../assets/styles/turismo.css">
 </head>
 <body>
   <!-- Menú superior -->
@@ -17,18 +17,17 @@
   </div>
 
   <!-- Contenedor principal con animación de entrada -->
-  <div class="container page-slide-in">
-    <div class="tourism-header">
+  <div class="container fade-in">
+    <div class="section-header">
       <h1>Descubre Nuestras Experiencias</h1>
       <p>Explora las diferentes actividades que ofrecemos en Finca Vozes da Mata</p>
     </div>
 
     <div class="tourism-grid">
       <a href="naturaleza-turismo.html" class="card-link">
-        <div class="tourism-card">
+        <div class="card">
           <div class="card-image">
             <img src="../assets/images/naturaleza.jpg" alt="Naturaleza" />
-            <div class="image-overlay"></div>
           </div>
           <div class="card-content">
             <h2>Naturaleza</h2>
@@ -38,10 +37,9 @@
       </a>
 
       <a href="gastronomia-turismo.html" class="card-link">
-        <div class="tourism-card">
+        <div class="card">
           <div class="card-image">
             <img src="https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg" alt="Gastronomía" />
-            <div class="image-overlay"></div>
           </div>
           <div class="card-content">
             <h2>Gastronomía</h2>
@@ -51,10 +49,9 @@
       </a>
 
       <a href="compras-turismo.html" class="card-link">
-        <div class="tourism-card">
+        <div class="card">
           <div class="card-image">
             <img src="../assets/images/compras.png" alt="Compras" />
-            <div class="image-overlay"></div>
           </div>
           <div class="card-content">
             <h2>Compras</h2>
@@ -64,10 +61,9 @@
       </a>
 
       <a href="otros-turismo.html" class="card-link">
-        <div class="tourism-card">
+        <div class="card">
           <div class="card-image">
             <img src="../assets/images/basket.png" alt="Cultura" />
-            <div class="image-overlay"></div>
           </div>
           <div class="card-content">
             <h2>Otros</h2>
@@ -89,10 +85,10 @@
       link.addEventListener('click', e => {
         if (link.getAttribute('href') === "#") return;
         e.preventDefault();
-        document.querySelector('.container').classList.replace('page-slide-in','page-slide-out');
+        document.querySelector('.container').classList.replace('fade-in','fade-out');
         setTimeout(() => {
           window.location.href = link.getAttribute('href');
-        }, 1000);
+        }, 500);
       });
     });
   </script>

@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Naturaleza - Finca Vozes da Mata</title>
-  <link rel="stylesheet" href="../assets/styles/naturaleza-turismo.css" />
+  <link rel="stylesheet" href="../assets/styles/global.css" />
 </head>
-<body>
+<body class="fade-in">
   <!-- Menú superior -->
   <div class="top-bar">
     <a href="index.html">Início</a>
@@ -16,18 +16,17 @@
     <a href="contacto.html">Contacto</a>
   </div>
 
-  <!-- Contenedor principal con animación de entrada -->
-  <div class="container page-slide-in">
-    <div class="nature-header">
+  <!-- Contenedor principal -->
+  <div class="container">
+    <div class="section-header">
       <h1>Explora la Naturaleza de Mogi</h1>
       <p>Descubre los tesoros naturales que nuestra región tiene para ofrecer</p>
     </div>
 
     <!-- Parque das Neblinas -->
-    <div class="nature-card">
+    <div class="card">
       <div class="card-image">
         <img src="../assets/images/parqueNeblinas.jpg" alt="Parque das Neblinas" />
-        <div class="image-overlay"></div>
       </div>
       <div class="card-content">
         <h2>Parque das Neblinas</h2>
@@ -51,10 +50,9 @@
     </div>
 
     <!-- Parque Centenário -->
-    <div class="nature-card">
+    <div class="card">
       <div class="card-image">
         <img src="../assets/images/parqueCentenario.jpg" alt="Parque Centenário" />
-        <div class="image-overlay"></div>
       </div>
       <div class="card-content">
         <h2>Parque Centenário</h2>
@@ -78,10 +76,9 @@
     </div>
 
     <!-- Pico do Urubu -->
-    <div class="nature-card">
+    <div class="card">
       <div class="card-image">
         <img src="../assets/images/picoUrubu.jpg" alt="Pico do Urubu" />
-        <div class="image-overlay"></div>
       </div>
       <div class="card-content">
         <h2>Pico do Urubu</h2>
@@ -104,29 +101,5 @@
     </div>
   </div>
 
-  <script>
-    // Manejo de la navegación con animaciones
-    const links = document.querySelectorAll('.top-bar a');
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        if (link.getAttribute('href') === "#") return;
-        e.preventDefault();
-        document.querySelector('.container').classList.replace('page-slide-in','page-slide-out');
-        setTimeout(() => {
-          window.location.href = link.getAttribute('href');
-        }, 1000);
-      });
-    });
-
-    // Cargar imagen de fondo
-    window.onload = function() {
-      const bg = new Image();
-      bg.src = "../assets/images/naturalezaBackground.png";
-      bg.onload = () => {
-        document.body.style.backgroundImage = `url(${bg.src})`;
-      };
-      if (bg.complete) bg.onload();
-    };
-  </script>
 </body>
 </html>
