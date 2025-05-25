@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Turismo - Finca Vozes da Mata</title>
+  <link rel="stylesheet" href="../assets/styles/turismo.css">
+</head>
+<body>
+  <!-- Menú superior -->
+  <div class="top-bar">
+    <a href="index.html">Início</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="turismo.html" class="active">Turismo</a>
+    <a href="sobre-nosotros.html">Sobre nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Contenedor principal con animación de entrada -->
+  <div class="container fade-in">
+    <div class="section-header">
+      <h1>Descubre Nuestras Experiencias</h1>
+      <p>Explora las diferentes actividades que ofrecemos en Finca Vozes da Mata</p>
+    </div>
+
+    <div class="tourism-grid">
+      <a href="naturaleza-turismo.html" class="card-link">
+        <div class="card">
+          <div class="card-image">
+            <img src="../assets/images/naturaleza.jpg" alt="Naturaleza" />
+          </div>
+          <div class="card-content">
+            <h2>Naturaleza</h2>
+            <p>Explora nuestros senderos y conecta con la naturaleza</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="gastronomia-turismo.html" class="card-link">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://images.pexels.com/photos/5677794/pexels-photo-5677794.jpeg" alt="Gastronomía" />
+          </div>
+          <div class="card-content">
+            <h2>Gastronomía</h2>
+            <p>Descubre los sabores locales y nuestra cocina tradicional</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="compras-turismo.html" class="card-link">
+        <div class="card">
+          <div class="card-image">
+            <img src="../assets/images/compras.png" alt="Compras" />
+          </div>
+          <div class="card-content">
+            <h2>Compras</h2>
+            <p>Productos locales y artesanías tradicionales</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="otros-turismo.html" class="card-link">
+        <div class="card">
+          <div class="card-image">
+            <img src="../assets/images/basket.png" alt="Cultura" />
+          </div>
+          <div class="card-content">
+            <h2>Otros</h2>
+            <p>Vive la rica herencia cultural de nuestra región</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Barra inferior -->
+  <div class="bottom-bar">
+    <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
+  </div>
+
+  <script>
+    const links = document.querySelectorAll('.top-bar a, .card-link');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        if (link.getAttribute('href') === "#") return;
+        e.preventDefault();
+        document.querySelector('.container').classList.replace('fade-in','fade-out');
+        setTimeout(() => {
+          window.location.href = link.getAttribute('href');
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
