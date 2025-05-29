@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Define codificação de caracteres -->
+  <meta charset="UTF-8" />
+  <!-- Ajusta escala em dispositivos móveis -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Título que aparece na aba do navegador -->
+  <title>Eventos - Finca Vozes da Mata</title>
+  <!-- Link para o arquivo de estilos CSS -->
+  <link rel="stylesheet" href="../assets/styles/eventos.css" />
+</head>
+
+<body>
+  <!-- Barra de navegação fixa no topo -->
+  <div class="top-bar">
+    <!-- Cada <a> é um link para outra página -->
+    <a href="index.html">Início</a>
+    <!-- Classe 'active' marca o link atual -->
+    <a href="eventos.html" class="active">Eventos</a>
+    <a href="turismo.html">Turismo</a>
+    <a href="sobre-nosotros.html">Sobre nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </div>
+
+  <!-- Container principal com animação de fade-in -->
+  <div class="container fade-in">
+    <!-- Cabeçalho da seção com título e descrição -->
+    <div class="section-header">
+      <h1>Eventos en Finca Vozes da Mata</h1>
+      <p>Descubre nuestras experiencias únicas en medio de la naturaleza</p>
+    </div>
+
+    <!-- Área de busca e botões de filtro -->
+    <div class="highlights">
+      <!-- Campo de texto e botão para buscar por palavra-chave -->
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar eventos..." id="search-input" />
+        <button type="button" class="search-button" id="search-button">Buscar</button>
+      </div>
+      <!-- Botões que filtram por categoria -->
+      <div class="recommendations">
+        <!-- data-category guarda o nome da categoria -->
+        <button type="button" class="filter-button active" data-category="todos">Todos</button>
+        <button type="button" class="filter-button" data-category="comunidad">Comunidad</button>
+        <button type="button" class="filter-button" data-category="arte">Arte y Cultura</button>
+        <button type="button" class="filter-button" data-category="gastronomia">Gastronomía</button>
+        <button type="button" class="filter-button" data-category="bienestar">Bienestar</button>
+        <button type="button" class="filter-button" data-category="educacion">Educación</button>
+
+      </div>
+    </div>
+
+    <!-- Espaço onde os eventos serão inseridos dinamicamente -->
+    <div id="events-container" class="content-section"></div>
+  </div>
+
+  <!-- Script em módulo para carregar e renderizar eventos -->
+  <script type="module">
+    // Importa a função que busca todos os eventos
+    import useGetAllEvents from "../assets/scripts/index.js";
+
+    // Espera o carregamento completo do HTML
+    document.addEventListener('DOMContentLoaded', async () => {
+      // Pega o elemento onde os cards vão ser inseridos
+      const container = document.getElementById('events-container');
+      // Carrega a lista de eventos de forma assíncrona
+      let eventos = await useGetAllEvents();
+
+      // Função que recebe uma lista e mostra na tela
+      const render = events => {
+        // Limpa o container antes de adicionar novos cards
+        container.innerHTML = '';
+        // Para cada evento, cria um cartão
+        events.forEach(evt => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          // Guarda a categoria no atributo data-category
+          card.dataset.category = (evt.tipo || 'todos').toLowerCase();
+
+          // Define o caminho da imagem com base no tipo do evento
+          const imgSrc = `../assets/images/events/${evt.tipo}.jpg`;
+
+          // Preenche o HTML interno do card
+          card.innerHTML = `
+            <div class="card-image">
+              <img src="${imgSrc}" alt="${evt.nombre}" />
+            </div>
+            <div class="card-content">
+              ${evt.destacado ? `<span class="highlights">Destacado</span>` : ''}
+              <h2>${evt.nombre}</h2>
+              <div class="content-details">
+                <!-- Formata a data para o formato local -->
+                <div class="meta-item">${new Date(evt.fecha).toLocaleDateString()}</div>
+                <div class="meta-item">${evt.horario}</div>
+                <div class="meta-item">Capacidad: ${evt.capacidad}</div>
+              </div>
+              <p>${evt.descripcion}</p>
+              <button type="button" class="search-button">Reservar plaza</button>
+            </div>
+          `;
+          // Adiciona o card ao container
+          container.appendChild(card);
+        });
+      };
+
+      // Primeira renderização: mostra todos os eventos
+      render(eventos);
+
+      // Adiciona funcionalidade aos botões de filtro
+      document.querySelectorAll('.filter-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove destaque de todos os botões
+          document.querySelectorAll('.filter-button').forEach(b => b.classList.remove('active'));
+          // Destaca o botão clicado
+          btn.classList.add('active');
+          // Pega a categoria do botão clicado
+          const btnClass = btn.dataset.category;
+          // Filtra eventos: se for 'todos', mantém tudo
+          const filtered = btnClass === 'todos'
+            ? eventos
+            : eventos.filter(e => {
+              const cardClass = e.tipo === 'noche' ? 'educacion' : e.tipo;
+              return cardClass.toLowerCase() === btnClass;
+            });
+          // Renderiza só os eventos filtrados
+          render(filtered);
+        });
+      });
+
+      // Busca por texto quando o botão Buscar é clicado
+      document.getElementById('search-button').addEventListener('click', () => {
+        // Pega o termo digitado e coloca em lowercase
+        const term = document.getElementById('search-input').value.toLowerCase();
+        // Filtra eventos que contenham o termo no nome ou descrição
+        const filtered = eventos.filter(e =>
+          e.nombre.toLowerCase().includes(term) ||
+          e.descripcion.toLowerCase().includes(term)
+        );
+        // Renderiza os resultados da busca
+        render(filtered);
+      });
+    });
+  </script>
+</body>
+
+</html>
