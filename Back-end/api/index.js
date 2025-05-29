@@ -1,12 +1,14 @@
-async function getAllEvents() {
-    const { data, error } = await supabase
-        .from('events')
-        .select('*');
+import { supabase } from "../supabase.js";
 
-    if (error) {
-        console.error('Error al obtener eventos:', error.message);
-        return;
-    }
+export async function getAllEvents() {
+  const { data, error } = await supabase
+    .from('events')
+    .select('*');
 
-    return data
+  if (error) {
+    console.log('Error al obtener eventos:', error.message);
+    return [];
+  } else {
+    return data;
+  }
 }
