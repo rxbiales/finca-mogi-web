@@ -2,10 +2,34 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto - Finca Vozes da Mata</title>
   <link rel="stylesheet" href="../assets/styles/contacto.css">
+  <style>
+    #toast {
+      position: fixed;
+      bottom: 50px;
+      right: 20px;
+      background-color: var(--secondary);
+      color: var(--text);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+      font-family: inherit;
+      font-size: 1rem;
+      display: none;
+      z-index: 20;
+      transition: opacity var(--transition);
+      opacity: 0;
+    }
+
+    #toast.show {
+      display: block;
+      opacity: 1;
+    }
+  </style>
 </head>
+
 <body>
   <div class="top-bar">
     <a href="index.html">Início</a>
@@ -28,8 +52,11 @@
         <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
         <button type="submit">Enviar</button>
       </form>
+      <div id="errores" style="color: red; margin-top: 8px;"></div>
     </div>
   </div>
+
+  <div id="toast">✅ Mensaje enviado correctamente</div>
 
   <div class="bottom-bar">
     <p>&copy; 2025 Finca Vozes da Mata. Todos los derechos reservados.</p>
