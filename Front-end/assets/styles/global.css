@@ -49,6 +49,33 @@ html {
 /* ****************************************************************** */
 /*                        Barra de navegación                         */
 /* ****************************************************************** */
+/* Posiciona o language-switcher dentro da top-bar, à direita */
+
+
+/* Agora ajustamos o language-switcher para ficar à direita */
+.top-bar .language-switcher {
+  position: absolute;
+  right: 16px;
+  display: flex;
+  gap: 8px; /* espaçamento entre botões */
+}
+
+/* Estilo mínimo para os botões, mantendo a paleta do topo */
+.top-bar .language-switcher button {
+  background: transparent;
+  border: none;
+  color: var(--text);        /* texto branco */
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.top-bar .language-switcher button:hover {
+  background: var(--secondary-light);
+}
+
 .top-bar {
   background: var(--primary);    /* Fondo con color primario */
   height: 48px;                  /* Altura fija de 48px */
