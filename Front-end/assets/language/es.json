@@ -1,0 +1,57 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "events": "Eventos",
+    "tourism": "Turismo",
+    "about": "Sobre nosotros",
+    "contact": "Contacto"
+  },
+  "header": {
+    "title": "Explora la Naturaleza de Mogi",
+    "subtitle": "Descubre los tesoros naturales que nuestra región tiene para ofrecer"
+  },
+  "park1": {
+    "title": "Parque das Neblinas",
+    "description": "Una reserva de Mata Atlántica gestionada por el Instituto Ecofuturo, ubicada en la Serra do Mar. El parque promueve la conservación, la investigación y la educación ambiental.",
+    "highlights": {
+      "header": "Destacados:",
+      "item1": "Senderos ecológicos (con o sin guía)",
+      "item2": "Observación de aves (más de 300 especies)",
+      "item3": "Ríos cristalinos con zonas para bañarse",
+      "item4": "Experiencias sostenibles"
+    },
+    "experience": {
+      "label": "Experiencia:",
+      "text": "Ideal para quienes buscan una conexión profunda con la naturaleza y aprendizaje ambiental."
+    }
+  },
+  "park2": {
+    "title": "Parque Centenário",
+    "description": "Parque urbano amplio, inaugurado para conmemorar los 100 años de la inmigración japonesa en Brasil. Está cerca del centro de la ciudad.",
+    "highlights": {
+      "header": "Destacados:",
+      "item1": "Lagos con carpas y puentes japoneses",
+      "item2": "Espacios para picnic y caminatas",
+      "item3": "Juegos infantiles",
+      "item4": "Zona para eventos"
+    },
+    "experience": {
+      "label": "Experiencia:",
+      "text": "Perfecto para paseos en familia y relajarse al aire libre."
+    }
+  },
+  "park3": {
+    "title": "Pico do Urubu",
+    "description": "Uno de los miradores más altos de Mogi, con vistas panorámicas impresionantes de la región. Es muy visitado por amantes de la aventura.",
+    "highlights": {
+      "header": "Destacados:",
+      "item1": "Trilha corta accesible a pie o en vehículo",
+      "item2": "Punto de despegue para parapente",
+      "item3": "Amaneceres y atardeceres espectaculares"
+    },
+    "experience": {
+      "label": "Experiencia:",
+      "text": "Recomendado para quienes disfrutan de vistas naturales y deportes extremos."
+    }
+  }
+}

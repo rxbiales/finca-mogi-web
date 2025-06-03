@@ -1,26 +1,90 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Naturaleza - Finca Vozes da Mata</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="header.title"></title>
   <link rel="stylesheet" href="../assets/styles/global.css" />
+  <style>
+
+  </style>
+  <script src="https://unpkg.com/i18next@21.6.3/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend@1.4.0/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@6.1.2/i18nextBrowserLanguageDetector.min.js"></script>
+  <script>
+    console.log('Iniciando i18next');
+    i18next
+      .use(i18nextHttpBackend)
+      .use(i18nextBrowserLanguageDetector)
+      .init({
+        debug: true,
+        supportedLngs: ['es', 'en'],
+        load: 'languageOnly',
+        fallbackLng: 'es',
+        backend: {
+          loadPath: 'assets/language/{{lng}}.json'
+        }
+      }, (err, t) => {
+        if (err) {
+          console.error('i18next init error:', err);
+          return;
+        }
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const translation = i18next.t(key);
+          console.log(`Traduciendo clave "${key}" → "${translation}"`);
+          el.innerHTML = translation;
+        });
+      });
+
+    i18next.on('failedLoading', (lng, ns, err) => {
+      console.error(`Error cargando ${lng}.json:`, err);
+    });
+
+    i18next.on('languageChanged', (lng) => {
+      console.log('Lenguaje cambiado a:', lng);
+    });
+
+    function changeLanguage(lng) {
+      console.log('Solicitado cambio de idioma a:', lng);
+      i18next.changeLanguage(lng, (err, t) => {
+        if (err) {
+          console.error('Error al cambiar idioma:', err);
+          return;
+        }
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const translation = i18next.t(key);
+          console.log(`Actualizar "${key}" → "${translation}"`);
+          el.innerHTML = translation;
+        });
+      });
+    }
+  </script>
 </head>
+
 <body class="fade-in">
   <!-- Menú superior -->
   <div class="top-bar">
-    <a href="index.html">Início</a>
-    <a href="eventos.html">Eventos</a>
-    <a href="turismo.html" class="active">Turismo</a>
-    <a href="sobre-nosotros.html">Sobre nosotros</a>
-    <a href="contacto.html">Contacto</a>
+    <a href="index.html" data-i18n="menu.home"></a>
+    <a href="eventos.html" data-i18n="menu.events"></a>
+    <a href="turismo.html" class="active" data-i18n="menu.tourism"></a>
+    <a href="sobre-nosotros.html" data-i18n="menu.about"></a>
+    <a href="contacto.html" data-i18n="menu.contact"></a>
+
+    <!-- MOVIDO: Selector de idioma dentro de .top-bar, à direita -->
+    <div class="language-switcher">
+      <button onclick="changeLanguage('es')">Español</button>
+      <button onclick="changeLanguage('en')">English</button>
+    </div>
   </div>
 
   <!-- Contenedor principal -->
   <div class="container">
     <div class="section-header">
-      <h1>Explora la Naturaleza de Mogi</h1>
-      <p>Descubre los tesoros naturales que nuestra región tiene para ofrecer</p>
+      <h1 data-i18n="header.title"></h1>
+      <p data-i18n="header.subtitle"></p>
     </div>
 
     <!-- Parque das Neblinas -->
@@ -29,21 +93,26 @@
         <img src="../assets/images/parqueNeblinas.jpg" alt="Parque das Neblinas" />
       </div>
       <div class="card-content">
-        <h2>Parque das Neblinas</h2>
+        <h2 data-i18n="park1.title"></h2>
         <div class="content-details">
-          <p>Una reserva de Mata Atlántica gestionada por el Instituto Ecofuturo, ubicada en la Serra do Mar. El parque promueve la conservación, la investigación y la educación ambiental.</p>
+          <p data-i18n="park1.description"></p>
           <div class="highlights">
-            <h3>Destacados:</h3>
+            <h3 data-i18n="park1.highlights.header"></h3>
             <ul>
-              <li>Senderos ecológicos (con o sin guía)</li>
-              <li>Observación de aves (más de 300 especies)</li>
-              <li>Ríos cristalinos con zonas para bañarse</li>
-              <li>Experiencias sostenibles</li>
+              <li data-i18n="park1.highlights.item1"></li>
+              <li data-i18n="park1.highlights.item2"></li>
+              <li data-i18n="park1.highlights.item3"></li>
+              <li data-i18n="park1.highlights.item4"></li>
             </ul>
           </div>
-          <p><strong>Experiencia:</strong> Ideal para quienes buscan una conexión profunda con la naturaleza y aprendizaje ambiental.</p>
+          <p>
+            <strong data-i18n="park1.experience.label"></strong>
+            <span data-i18n="park1.experience.text"></span>
+          </p>
           <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2968336169083!2d-46.18139392378324!3d-23.736792068062332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cde22f3c58a033%3A0x6bd430de8204f56f!2sParque%20das%20Neblinas!5e0!3m2!1sen!2ses!4v1745172221776!5m2!1sen!2ses" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2968336169083!2d-46.18139392378324!3d-23.736792068062332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cde22f3c58a033%3A0x6bd430de8204f56f!2sParque%20das%20Neblinas!5e0!3m2!1sen!2ses!4v1745172221776!5m2!1sen!2ses"
+              allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -55,21 +124,26 @@
         <img src="../assets/images/parqueCentenario.jpg" alt="Parque Centenário" />
       </div>
       <div class="card-content">
-        <h2>Parque Centenário</h2>
+        <h2 data-i18n="park2.title"></h2>
         <div class="content-details">
-          <p>Parque urbano amplio, inaugurado para conmemorar los 100 años de la inmigración japonesa en Brasil. Está cerca del centro de la ciudad.</p>
+          <p data-i18n="park2.description"></p>
           <div class="highlights">
-            <h3>Destacados:</h3>
+            <h3 data-i18n="park2.highlights.header"></h3>
             <ul>
-              <li>Lagos con carpas y puentes japoneses</li>
-              <li>Espacios para picnic y caminatas</li>
-              <li>Juegos infantiles</li>
-              <li>Zona para eventos</li>
+              <li data-i18n="park2.highlights.item1"></li>
+              <li data-i18n="park2.highlights.item2"></li>
+              <li data-i18n="park2.highlights.item3"></li>
+              <li data-i18n="park2.highlights.item4"></li>
             </ul>
           </div>
-          <p><strong>Experiencia:</strong> Perfecto para paseos en familia y relajarse al aire libre.</p>
+          <p>
+            <strong data-i18n="park2.experience.label"></strong>
+            <span data-i18n="park2.experience.text"></span>
+          </p>
           <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.6567711586895!2d-46.17439142378958!3d-23.508869159667412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd82d59089f4f%3A0x4b03d00b8e779eb!2sJapanese%20Immigration%20Centennial%20Park!5e0!3m2!1sen!2ses!4v1745172308445!5m2!1sen!2ses" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.6567711586895!2d-46.17439142378958!3d-23.508869159667412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd82d59089f4f%3A0x4b03d00b8e779eb!2sJapanese%20Immigration%20Centennial%20Park!5e0!3m2!1sen!2ses!4v1745172308445!5m2!1sen!2ses"
+              allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -81,25 +155,30 @@
         <img src="../assets/images/picoUrubu.jpg" alt="Pico do Urubu" />
       </div>
       <div class="card-content">
-        <h2>Pico do Urubu</h2>
+        <h2 data-i18n="park3.title"></h2>
         <div class="content-details">
-          <p>Uno de los miradores más altos de Mogi, con vistas panorámicas impresionantes de la región. Es muy visitado por amantes de la aventura.</p>
+          <p data-i18n="park3.description"></p>
           <div class="highlights">
-            <h3>Destacados:</h3>
+            <h3 data-i18n="park3.highlights.header"></h3>
             <ul>
-              <li>Trilha corta accesible a pie o en vehículo</li>
-              <li>Punto de despegue para parapente</li>
-              <li>Amaneceres y atardeceres espectaculares</li>
+              <li data-i18n="park3.highlights.item1"></li>
+              <li data-i18n="park3.highlights.item2"></li>
+              <li data-i18n="park3.highlights.item3"></li>
             </ul>
           </div>
-          <p><strong>Experiencia:</strong> Recomendado para quienes disfrutan de vistas naturales y deportes extremos.</p>
+          <p>
+            <strong data-i18n="park3.experience.label"></strong>
+            <span data-i18n="park3.experience.text"></span>
+          </p>
           <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.0839152570153!2d-46.12136832467163!3d-23.682277365812184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce90e0db79efeb%3A0xc8a4c982ff2728f5!2sPico%20do%20Urubu!5e0!3m2!1ses!2sbr!4v1713363923650!5m2!1ses!2sbr" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.0839152570153!2d-46.12136832467163!3d-23.682277365812184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce90e0db79efeb%3A0xc8a4c982ff2728f5!2sPico%20do%20Urubu!5e0!3m2!1ses!2sbr!4v1713363923650!5m2!1ses!2sbr"
+              allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </body>
+
 </html>

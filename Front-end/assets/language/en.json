@@ -1,0 +1,57 @@
+{
+  "menu": {
+    "home": "Home",
+    "events": "Events",
+    "tourism": "Tourism",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "header": {
+    "title": "Explore the Nature of Mogi",
+    "subtitle": "Discover the natural treasures our region has to offer"
+  },
+  "park1": {
+    "title": "Parque das Neblinas",
+    "description": "An Atlantic Forest reserve managed by the Instituto Ecofuturo, located in the Serra do Mar. The park promotes conservation, research, and environmental education.",
+    "highlights": {
+      "header": "Highlights:",
+      "item1": "Ecological trails (with or without a guide)",
+      "item2": "Bird watching (over 300 species)",
+      "item3": "Crystal-clear rivers with swimming areas",
+      "item4": "Sustainable experiences"
+    },
+    "experience": {
+      "label": "Experience:",
+      "text": "Ideal for those seeking a deep connection with nature and environmental learning."
+    }
+  },
+  "park2": {
+    "title": "Parque Centenário",
+    "description": "Large urban park, inaugurated to commemorate the 100th anniversary of Japanese immigration in Brazil. It's near the city center.",
+    "highlights": {
+      "header": "Highlights:",
+      "item1": "Lakes with koi and Japanese bridges",
+      "item2": "Picnic and walking areas",
+      "item3": "Children's playgrounds",
+      "item4": "Event area"
+    },
+    "experience": {
+      "label": "Experience:",
+      "text": "Perfect for family strolls and relaxing outdoors."
+    }
+  },
+  "park3": {
+    "title": "Pico do Urubu",
+    "description": "One of the highest viewpoints in Mogi, with stunning panoramic views of the region. It's highly visited by adventure lovers.",
+    "highlights": {
+      "header": "Highlights:",
+      "item1": "Short trail accessible by foot or vehicle",
+      "item2": "Paragliding launch point",
+      "item3": "Spectacular sunrises and sunsets"
+    },
+    "experience": {
+      "label": "Experience:",
+      "text": "Recommended for those who enjoy natural views and extreme sports."
+    }
+  }
+}
