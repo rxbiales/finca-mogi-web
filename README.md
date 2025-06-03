@@ -1,6 +1,6 @@
 # finca-mogi-web
+Para ver el proyecto, clona el repositorio git en local.
 
-Actualmente solo la rama feature/estructura-web tiene avanzos, las otras estan vacías.
+Tienes que abrir dos terminales, ejecuta yarn start en una, y php -S localhost:8001 en otra (tiene que encontrarse en el archivo Finca-Mogi-web/Back-end/api), para activar el backend de php.
 
-Para ver el proyecto, solo es necesario abrir el archivo front-end/views/index.html en un navegador.
-Todavía no se ha implementado ninguna funcionalidad de PHP ni base de datos, solo hay estructura de frontend.
+asi, entra en localhost/3000, y podrás ver el proyecto.

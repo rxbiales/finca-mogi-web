@@ -1,0 +1,408 @@
+/* ****************************************************************** */
+/*                     Variables globales (tema y estilos)            */
+/* ****************************************************************** */
+:root {
+  /* Color primario oscuro (marrón) */
+  --primary: #432818;
+  /* Color primario oscuro con transparencia (para capas) */
+  --primary-light: rgba(67, 40, 24, 0.8);
+  /* Color secundario (marrón claro) */
+  --secondary: #a9745c;
+  /* Color secundario claro con transparencia */
+  --secondary-light: rgba(169, 116, 92, 0.2);
+  /* Color de texto principal (blanco) */
+  --text: #fff;
+  /* Color de texto secundario (blanco semitransparente) */
+  --text-secondary: rgba(255, 255, 255, 0.9);
+  /* Radio de borde pequeño */
+  --radius-sm: 4px;
+  /* Radio de borde mediano */
+  --radius-md: 8px;
+  /* Radio de borde grande */
+  --radius-lg: 12px;
+  /* Sombra estándar para cajas */
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  /* Sombra aumentada para estados hover */
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Duración y tipo de transición para animaciones */
+  --transition: 0.3s ease;
+}
+
+/* ****************************************************************** */
+/*                  Estilos base para HTML y BODY                     */
+/* ****************************************************************** */
+html {
+  /* Tamaño de fuente base: 16px (para rems y ems) */
+  font-size: 16px;
+}
+
+body,
+html {
+  margin: 0;                    /* Elimina márgenes por defecto */
+  padding: 0;                   /* Elimina paddings por defecto */
+  height: 100%;                 /* Ocupa toda la altura de la ventana */
+  background-color: #f5f5f5;    /* Fondo gris muy claro */
+  color: #333;                  /* Color de texto oscuro para legibilidad */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía */
+}
+
+/* ****************************************************************** */
+/*                        Barra de navegación                         */
+/* ****************************************************************** */
+.top-bar {
+  background: var(--primary);    /* Fondo con color primario */
+  height: 48px;                  /* Altura fija de 48px */
+  display: flex;                 /* Contenedor flex para centrar enlaces */
+  justify-content: center;       /* Centrado horizontal de hijos */
+  align-items: center;           /* Centrado vertical de hijos */
+  position: fixed;               /* Fija la barra en la parte superior */
+  top: 0;                        /* Posición: arriba de la página */
+  width: 100%;                   /* Ocupa todo el ancho */
+  z-index: 10;                   /* Aparece por encima de otros elementos */
+}
+
+.top-bar a {
+  color: var(--text);            /* Color de texto blanco */
+  text-decoration: none;         /* Sin subrayado */
+  margin: 0 12px;                /* Espacio horizontal entre enlaces */
+  font-size: 0.9rem;             /* Tamaño de fuente ligeramente menor */
+  line-height: 48px;             /* Alineación vertical dentro de la barra */
+  transition: color var(--transition); /* Transición suave para hover */
+}
+
+.top-bar a:hover {
+  color: var(--secondary);       /* Cambia a color secundario al pasar ratón */
+}
+
+.top-bar a.active {
+  text-decoration: underline;    /* Subraya el enlace activo */
+}
+
+/* ****************************************************************** */
+/*                   Contenedor principal (contenidos)                */
+/* ****************************************************************** */
+.container {
+  max-width: 1100px;                            /* Ancho máximo del contenedor */
+  margin: 60px auto 60px;                       /* Margen superior e inferior */
+  padding: 0 16px;                              /* Espaciado horizontal interno */
+  min-height: calc(100vh - 120px);              /* Altura mínima que deja espacio para top y bottom bar */
+}
+
+/* ****************************************************************** */
+/*                 Encabezados de sección (títulos y subtítulos)     */
+/* ****************************************************************** */
+.section-header {
+  text-align: center;      /* Centra el texto */
+  margin-bottom: 1.5rem;   /* Espacio debajo del header */
+}
+
+.section-header h1 {
+  font-size: 1.8rem;       /* Tamaño de fuente grande para títulos */
+  margin-bottom: 0.5rem;   /* Espacio debajo del título */
+  color: var(--primary);   /* Color primario para el texto */
+}
+
+.section-header p {
+  font-size: 1rem;         /* Tamaño de fuente normal para párrafos descriptivos */
+  max-width: 500px;        /* Ancho máximo para mejorar lectura */
+  margin: 0 auto;          /* Centra horizontalmente el párrafo */
+  color: #555;             /* Color de texto gris oscuro */
+}
+
+/* ****************************************************************** */
+/*                            Estilos de tarjeta (card)               */
+/* ****************************************************************** */
+.card {
+  background-color: white;               /* Fondo blanco para la tarjeta */
+  border-radius: var(--radius-md);       /* Bordes redondeados medianos */
+  overflow: hidden;                      /* Oculta contenido que sobresale */
+  box-shadow: var(--shadow);             /* Sombra estándar alrededor */
+  margin-bottom: 1.5rem;                 /* Margen inferior entre tarjetas */
+  transition: transform var(--transition), /* Transición para transform y sombra */
+              box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-3px);           /* Eleva ligeramente la tarjeta al pasar ratón */
+  box-shadow: var(--shadow-hover);       /* Sombra más intensa en hover */
+}
+
+.card-image {
+  position: relative;                    /* Posicionamiento para elementos internos */
+  height: 240px;                         /* Altura fija para la sección de imagen */
+  overflow: hidden;                      /* Oculta partes de la imagen fuera del contenedor */
+}
+
+.card-image img {
+  width: 100%;                           /* Ancho completo del contenedor */
+  height: 100%;                          /* Altura completa del contenedor */
+  object-fit: cover;                     /* La imagen cubre el contenedor recortando proporción */
+  transition: transform 0.5s;            /* Transición suave para el efecto hover */
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);                /* Escala la imagen al 105% en hover */
+}
+
+.card-content {
+  padding: 1.25rem;                      /* Espaciado interno alrededor del contenido */
+}
+
+.card-content h2 {
+  font-size: 1.4rem;                     /* Tamaño de fuente para subtítulos en la tarjeta */
+  margin-bottom: 0.75rem;                /* Espacio debajo del subtítulo */
+  color: var(--primary);                 /* Color primario para el título */
+}
+
+.content-details {
+  color: #444;                           /* Color de texto ligeramente oscuro */
+  line-height: 1.5;                      /* Altura de línea para mejorar legibilidad */
+}
+
+/* ****************************************************************** */
+/*                       Sección de destacados (highlights)           */
+/* ****************************************************************** */
+.highlights {
+  background: var(--secondary-light);    /* Fondo secundario muy claro y transparente */
+  border-radius: var(--radius-sm);       /* Bordes redondeados pequeños */
+  padding: 1rem;                         /* Espaciado interno */
+  margin: 1rem 0;                        /* Margen arriba y abajo para separar secciones */
+}
+
+.highlights h3 {
+  color: var(--primary);                 /* Color primario para subtítulos */
+  margin-top: 0;                         /* Sin margen superior */
+  margin-bottom: 0.75rem;                /* Espacio debajo del subtítulo */
+  font-size: 1.1rem;                     /* Tamaño de fuente para subtítulos */
+}
+
+.highlights ul {
+  list-style-type: none;                 /* Elimina viñetas por defecto */
+  padding: 0;                            /* Elimina padding interno */
+  margin: 0;                             /* Elimina margen por defecto */
+}
+
+.highlights li {
+  margin-bottom: 0.4rem;                 /* Espacio entre cada elemento de la lista */
+  padding-left: 1.25rem;                 /* Espacio a la izquierda para el pseudo-elemento */
+  position: relative;                    /* Para posicionar el punto personalizado */
+}
+
+.highlights li::before {
+  content: "•";                          /* Agrega un punto como viñeta */
+  color: var(--secondary);               /* Color secundario para la viñeta */
+  position: absolute;                    /* Posición absoluta respecto al li */
+  left: 0;                               /* Situado al borde izquierdo del li */
+}
+
+/* ****************************************************************** */
+/*                       Sección de recomendaciones                    */
+/* ****************************************************************** */
+.recommendations {
+  margin-top: 1rem;                      /* Espacio arriba de la sección */
+}
+
+.recommendations h3 {
+  color: var(--primary);                 /* Color primario para subtítulos */
+  margin-bottom: 0.75rem;                /* Espacio debajo del subtítulo */
+  font-size: 1.1rem;                     /* Tamaño de fuente para subtítulos */
+}
+
+.recommendations ul {
+  list-style-type: none;                 /* Elimina viñetas por defecto */
+  padding: 0;                            /* Elimina padding interno */
+  margin: 0;                             /* Elimina margen por defecto */
+  display: grid;                         /* Usa grid para distribuir elementos */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Columnas flexibles */
+  gap: 0.75rem;                          /* Espacio entre celdas del grid */
+}
+
+.recommendations li {
+  padding-left: 1.25rem;                 /* Espacio a la izquierda para el pseudo-elemento */
+  position: relative;                    /* Para posicionar el punto personalizado */
+}
+
+.recommendations li::before {
+  content: "•";                          /* Agrega un punto como viñeta */
+  color: var(--secondary);               /* Color secundario para la viñeta */
+  position: absolute;                    /* Posición absoluta respecto al li */
+  left: 0;                               /* Situado al borde izquierdo del li */
+}
+
+/* ****************************************************************** */
+/*                          Contenedor de mapa                          */
+/* ****************************************************************** */
+.map-container {
+  margin-top: 1rem;                      /* Espacio arriba de la sección de mapa */
+  border-radius: var(--radius-sm);       /* Bordes redondeados pequeños */
+  overflow: hidden;                      /* Oculta cualquier contenido que sobresalga */
+}
+
+.map-container iframe {
+  width: 100%;                           /* Ancho completo del contenedor */
+  height: 250px;                         /* Altura fija para el iframe */
+  border: none;                          /* Sin borde alrededor del iframe */
+}
+
+/* ****************************************************************** */
+/*                          Barra inferior (footer)                    */
+/* ****************************************************************** */
+.bottom-bar {
+  width: 100%;                           /* Ocupa todo el ancho */
+  height: 48px;                          /* Altura fija de 48px */
+  background-color: var(--primary);      /* Fondo con color primario */
+  display: flex;                         /* Contenedor flex para centrar contenido */
+  justify-content: center;               /* Centra horizontalmente */
+  align-items: center;                   /* Centra verticalmente */
+  position: fixed;                       /* Fija en la parte inferior */
+  bottom: 0;                             /* Posición: abajo de la página */
+  left: 0;                               /* Alineado a la izquierda */
+}
+
+.bottom-bar p {
+  color: var(--text);                    /* Color de texto blanco */
+  font-size: 0.8rem;                     /* Tamaño de fuente pequeño */
+  margin: 0;                             /* Sin márgenes */
+}
+
+/* ****************************************************************** */
+/*                    Sección de introducción genérica                  */
+/* ****************************************************************** */
+.intro-section {
+  padding: 2rem 1rem;                    /* Espaciado interno amplio */
+  text-align: center;                    /* Centra el texto */
+  margin-top: 48px;                      /* Deja espacio debajo de la top-bar */
+  background-color: var(--primary-light); /* Fondo semitransparente primario */
+}
+
+.intro-section h1 {
+  color: var(--text);                    /* Texto blanco */
+  font-size: 1.8rem;                     /* Tamaño grande para títulos */
+  margin-bottom: 0.5rem;                 /* Espacio debajo del título */
+}
+
+/* Indicador para invitar a desplazar (scroll) */
+.scroll-indicator {
+  margin-top: 1rem;                      /* Espacio arriba del indicador */
+  animation: bounce 2s infinite;         /* Animación de rebote continua */
+}
+
+.scroll-indicator span {
+  color: var(--text);                    /* Texto blanco */
+  font-size: 1.5rem;                     /* Tamaño de fuente mayor para visibilidad */
+}
+
+/* Animación de rebote para .scroll-indicator */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);            /* Posición normal en esos porcentajes */
+  }
+  40% {
+    transform: translateY(-10px);        /* Sube 10px en el 40% */
+  }
+  60% {
+    transform: translateY(-5px);         /* Sube 5px en el 60% */
+  }
+}
+
+/* ****************************************************************** */
+/*                Secciones de contenido para parques (park)           */
+/* ****************************************************************** */
+.content-section {
+  max-width: 1100px;                     /* Ancho máximo del contenedor */
+  margin: 1.5rem auto;                   /* Centrado horizontal con margen superior */
+  padding: 0 1rem;                       /* Espaciado interno horizontal */
+}
+
+.park {
+  display: flex;                         /* Uso de flexbox para organizar imagen y texto */
+  flex-direction: column;                /* Dirección vertical por defecto (móvil) */
+  background-color: white;               /* Fondo blanco */
+  border-radius: var(--radius-md);       /* Bordes redondeados medianos */
+  overflow: hidden;                      /* Oculta contenido que sobresalga */
+  box-shadow: var(--shadow);             /* Sombra estándar */
+  margin-bottom: 1.5rem;                 /* Espacio entre cada parque */
+}
+
+.park img {
+  width: 100%;                           /* Ancho completo del contenedor */
+  height: 240px;                         /* Altura fija para la imagen */
+  object-fit: cover;                     /* La imagen cubre el área recortando */
+}
+
+.park-content {
+  padding: 1.25rem;                      /* Espaciado interno para el contenido textual */
+}
+
+.park-content h2 {
+  font-size: 1.4rem;                     /* Tamaño de fuente para subtítulos */
+  margin-top: 0;                         /* Sin margen superior */
+  margin-bottom: 0.75rem;                /* Espacio debajo del subtítulo */
+  color: var(--primary);                 /* Color primario para el texto */
+}
+
+.park-content p {
+  color: #444;                           /* Color de texto gris oscuro */
+  line-height: 1.5;                      /* Altura de línea para legibilidad */
+  margin-bottom: 1rem;                   /* Espacio debajo de cada párrafo */
+}
+
+/* ****************************************************************** */
+/*          Animación de transición (fade-in) para elementos           */
+/* ****************************************************************** */
+@keyframes fadeIn {
+  0%   { opacity: 0; }                   /* Invisible al inicio */
+  100% { opacity: 1; }                   /* Totalmente visible al final */
+}
+
+.fade-in {
+  animation: fadeIn 0.5s forwards;       /* Aplica fade-in en 0.5 segundos */
+}
+
+/* ****************************************************************** */
+/*                       Estilos responsivos (mobile/tablet)           */
+/* ****************************************************************** */
+@media (min-width: 768px) {
+  .park {
+    flex-direction: row;                 /* En pantallas anchas, organiza en fila */
+  }
+
+  .park img {
+    width: 40%;                          /* La imagen ocupa 40% del ancho */
+    height: auto;                        /* Altura automática para mantener proporción */
+  }
+
+  .park-content {
+    width: 60%;                          /* El contenido ocupa 60% del ancho */
+  }
+
+  .card-image {
+    height: 280px;                       /* Ajusta altura de las imágenes en tarjetas en pantallas anchas */
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 15px;                     /* Reduce ligeramente la fuente en móviles */
+  }
+
+  .section-header h1 {
+    font-size: 1.6rem;                   /* Ajusta tamaño de títulos en móviles */
+  }
+
+  .card-content {
+    padding: 1rem;                       /* Reduce paddings en tarjetas en móviles */
+  }
+
+  .card-content h2 {
+    font-size: 1.3rem;                   /* Ajusta tamaño de subtítulos en tarjetas en móviles */
+  }
+
+  .highlights {
+    padding: 0.75rem;                    /* Reduce padding en secciones destacadas en móviles */
+  }
+
+  .recommendations ul {
+    grid-template-columns: 1fr;          /* Convierte recomendaciones en lista vertical en móviles */
+  }
+}
